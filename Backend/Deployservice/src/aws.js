@@ -4,19 +4,19 @@ import path from "path";
 import { pipeline } from "stream/promises";
 import dotenv from "dotenv"
 
-dotenv.config()
+dotenv.config();
 
 const s3 = new S3Client({
-   region: process.env(region),
-  credentials:{
-    accessKeyId : process.env(accessKeyId),
-    secretAccessKey : process.env(secretAccessKey),
+   region: process.env.AWS_REGION,
+    credentials:{
+    accessKeyId : process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey : process.env.AWS_SECRET_ACCESS_KEY,
   }
 });
 
 const bucket = "deplotmentcode";
 
-async function downloadPrefix(prefix) {
+export async function downloadPrefix(prefix) {
   const { Contents } = await s3.send(
     new ListObjectsV2Command({
       Bucket: bucket,
@@ -48,4 +48,6 @@ async function downloadFile(key) {
   await pipeline(Body, fs.createWriteStream(localPath));
   console.log( key);
 }
+
+// downloadPrefix("output/5skdp/")
 
