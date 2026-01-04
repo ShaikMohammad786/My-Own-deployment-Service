@@ -1,0 +1,22 @@
+{
+  "name": "vercel",
+  "version": "1.0.0",
+  "description": "replicating vercel clone",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.962.0",
+    "codemon": "^0.1.31-development",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11",
+    "redis": "^5.10.0",
+    "simple-git": "^3.30.0"
+  }
+}

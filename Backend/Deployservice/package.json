@@ -1,0 +1,20 @@
+{
+  "name": "deployservice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src\\index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.962.0",
+    "dotenv": "^17.2.3",
+    "nodemon": "^3.1.11",
+    "redis": "^5.10.0"
+  }
+}
