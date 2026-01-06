@@ -1,9 +1,10 @@
-import {createClient} from "redis"
-import { downloadPrefix , uploadfiletoS3 } from "./aws.js";
+import { createClient } from "redis"
+import { downloadPrefix, uploadfiletoS3 } from "./aws.js";
 import { runDockerBuild } from "./build.js";
-import { readallfiles  } from "./utils.js";
+import { readallfiles } from "./utils.js";
 import path from "path";
 import { MongoClient } from "mongodb";
+import cors from "cors";
 
 //redis
 const peer = createClient();
@@ -18,10 +19,11 @@ const db = client.db("vercel");
 const statusCollection = db.collection("status_tracking");
 
 
-async function main(){
-   
 
-    while(1){
+async function main() {
+
+
+    while (1) {
 
         const res = await peer.brPop("build-queue", 0);
         const jobId = res.element;
@@ -30,22 +32,20 @@ async function main(){
         await downloadPrefix(prefix);
         await runDockerBuild(jobId);
         console.log("Build finished for:", jobId);
-        
-        const dir = path.resolve(process.cwd(),"..")
+
+        const dir = path.resolve(process.cwd(), "..")
         console.log(dir)
         const localdistpath = `${dir}\\Deployservice\\workspace\\dist\\${jobId}`;
         const filesindist = readallfiles(localdistpath);
 
-        filesindist.forEach(async file => {
-             await uploadfiletoS3(file);
-            });
+        await Promise.all(filesindist.map(file => uploadfiletoS3(file)));
 
         await statusCollection.updateOne(
-        { sid: jobId},
-        { $set: { status: "deployed" } }
+            { sid: jobId },
+            { $set: { status: "deployed" } }
         );
 
-        }
+    }
 
 }
 main()

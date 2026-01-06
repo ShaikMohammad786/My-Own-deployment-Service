@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+import cors from "cors";
 
 dotenv.config();
 
@@ -15,6 +16,11 @@ const s3 = new S3Client({
 });
 
 app.use(express.json());
+app.use(cors({
+  origin: "http://localhost:5173", // React URL
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 app.use(async (req, res) => {
   try {
