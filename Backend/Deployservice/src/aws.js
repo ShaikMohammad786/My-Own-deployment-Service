@@ -14,7 +14,7 @@ const s3 = new S3Client({
   }
 });
 
-const bucket = "deplotmentcode";
+const bucket = process.env.S3_BUCKET_NAME;
 
 export async function downloadPrefix(prefix) {
   const { Contents } = await s3.send(

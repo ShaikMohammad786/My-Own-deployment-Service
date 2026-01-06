@@ -23,7 +23,7 @@ export async function uploadfiletoS3(localfile){
 
         const input ={
             Body : filecontent,
-            Bucket : "deplotmentcode",
+            Bucket : process.env.S3_BUCKET_NAME,
             Key : filename,
             contentLength : size
 

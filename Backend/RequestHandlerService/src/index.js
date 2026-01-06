@@ -38,7 +38,7 @@ app.use(async (req, res) => {
     console.log("S3 KEY =>", fileKey);
 
     const command = new GetObjectCommand({
-      Bucket: "deplotmentcode",
+      Bucket: process.env.S3_BUCKET_NAME,
       Key: fileKey,
     });
 
