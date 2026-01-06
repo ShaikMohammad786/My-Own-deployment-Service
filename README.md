@@ -1,4 +1,4 @@
-# 🚀 Vercel Clone - Automated Deployment Platform
+# 🚀 Automated Deployment Platform(single click frontend Deployment)
 
 A full-stack deployment platform inspired by Vercel, built with the MERN stack. This application allows users to deploy GitHub repositories instantly with zero configuration, handling the entire deployment pipeline from code upload to live hosting.
 
@@ -22,6 +22,8 @@ A full-stack deployment platform inspired by Vercel, built with the MERN stack. 
 - **Docker-based Builds**: Isolated build environments using Docker containers
 - **Subdomain Routing**: Each deployment gets a unique subdomain (e.g., `projectid.localhost:3001`)
 - **Modern UI**: Beautiful, responsive React frontend with real-time feedback
+
+- for now only those project which can build dist files via npm install && npm run build only can be deployed future work is in progress to support other frontend frameworks any contributions are hugely encouraged!
 
 ## 🏗️ Architecture
 
