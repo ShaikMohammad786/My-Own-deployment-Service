@@ -1,0 +1,53 @@
+/* Nav.css - Responsive styles for Nav component */
+
+/* Base styles (desktop, unchanged) */
+
+/* Responsive: Tablet and below */
+@media (max-width: 1024px) {
+  .nav-container, .nav {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .nav-logo {
+    font-size: 1.2rem !important;
+  }
+  .nav-links {
+    gap: 1rem !important;
+  }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 600px) {
+  .nav-container, .nav {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .nav-logo {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+    text-align: center !important;
+  }
+  .nav-links {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+  .nav-link, .nav-item {
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .nav {
+    min-height: 56px !important;
+  }
+}
+
+/* General: Ensure nav icons scale on small screens */
+.nav-logo img, .nav-link img {
+  max-width: 32px;
+  height: auto;
+} 

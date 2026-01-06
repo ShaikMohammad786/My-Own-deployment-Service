@@ -1,0 +1,122 @@
+/* Manager.css - Responsive styles for Manager component */
+
+/* Base styles (desktop, unchanged) */
+
+/* Responsive: Tablet and below */
+@media (max-width: 1024px) {
+  .ml-40, .ml-50, .mr-50 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .w-300, .w-100, .w-70 {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  .mt-10, .mb-10, .mt-7, .mb-5 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .p-3 {
+    padding: 0.75rem !important;
+  }
+  .rounded-full {
+    border-radius: 9999px !important;
+  }
+  .text-xl, .text-lg {
+    font-size: 1.1rem !important;
+  }
+  .text-center {
+    text-align: center !important;
+  }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 600px) {
+  .ml-40, .ml-50, .mr-50 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .w-300, .w-100, .w-70 {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  .mt-10, .mb-10, .mt-7, .mb-5 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .p-3 {
+    padding: 0.5rem !important;
+  }
+  .rounded-full {
+    border-radius: 9999px !important;
+  }
+  .text-xl, .text-lg {
+    font-size: 1rem !important;
+  }
+  .text-center {
+    text-align: center !important;
+  }
+  /* Make table horizontally scrollable */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  thead, tbody, th, td, tr {
+    display: block;
+  }
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  tr {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    min-height: 2.5rem;
+    text-align: left !important;
+    white-space: pre-line;
+    word-break: break-word;
+  }
+  td:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    padding-left: 0.5rem;
+    white-space: pre-line;
+    font-weight: bold;
+    font-size: 0.95em;
+  }
+  td:nth-of-type(1):before { content: "S.No"; }
+  td:nth-of-type(2):before { content: "Site Name"; }
+  td:nth-of-type(3):before { content: "Username"; }
+  td:nth-of-type(4):before { content: "Password"; }
+  td:nth-of-type(5):before { content: "Actions"; }
+  /* Inputs and buttons touch-friendly */
+  input, button {
+    font-size: 1rem !important;
+    min-height: 2.5rem;
+    padding: 0.5rem 1rem;
+  }
+  button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  .flex, .justify-between, .gap-4 {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+}
+
+/* General: Ensure images/icons scale on small screens */
+img {
+  max-width: 32px;
+  height: auto;
+} 

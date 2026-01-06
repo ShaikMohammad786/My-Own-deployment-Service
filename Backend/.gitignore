@@ -2,3 +2,4 @@
 node_modules/
 Backend/Deployservice/workspace/output/
 Backend/Deployservice/workspace/dist/
+Backend/UploadService/output
